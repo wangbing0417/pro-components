@@ -1,0 +1,16 @@
+{
+  "name": "beer-pro-layout",
+  "version": "0.0.0",
+  "module": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "del": "rimraf dist"
+  },
+  "dependencies": {
+    "vue": "^3.0.3",
+    "vue-router": "^4.0.1"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
+}

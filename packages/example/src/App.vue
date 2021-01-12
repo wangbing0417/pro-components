@@ -1,25 +1,23 @@
 <template>
-  <div class="pro-button">1</div>
-  <ProButton @click="handleClick"></ProButton>
+  <router-view />
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import ProButton from 'beer-pro-button'
+<!--<script lang="ts">-->
+<!--import { defineComponent } from 'vue'-->
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    ProButton
-  },
-  setup() {
-    const handleClick = () => {
-      console.log(345)
-    }
-
-    return {
-      handleClick
-    }
-  }
-})
-</script>
+<!--export default defineComponent({-->
+<!--  name: 'App'-->
+<!--  // components: {-->
+<!--  //   ProButton-->
+<!--  // },-->
+<!--  // setup() {-->
+<!--  //   const handleClick = () => {-->
+<!--  //     console.log(345)-->
+<!--  //   }-->
+<!--  //-->
+<!--  //   return {-->
+<!--  //     handleClick-->
+<!--  //   }-->
+<!--  // }-->
+<!--})-->
+<!--</script>-->

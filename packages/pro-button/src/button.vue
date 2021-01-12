@@ -9,7 +9,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Button',
+  name: 'ProButton',
   props: {},
   emits: ['click'],
   setup(props, ctx) {
@@ -39,3 +39,17 @@ $h: 32px;
   background: white;
 }
 </style>
+
+<!--<style>-->
+<!--.pro-button {-->
+<!--  box-sizing: border-box;-->
+<!--  height: 32px;-->
+<!--  padding: 0 12px;-->
+<!--  cursor: pointer;-->
+<!--  display: inline-flex;-->
+<!--  justify-content: center;-->
+<!--  align-items: center;-->
+<!--  white-space: nowrap;-->
+<!--  background: white;-->
+<!--}-->
+<!--</style>-->

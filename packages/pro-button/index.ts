@@ -1,8 +1,8 @@
 import { App } from 'vue'
-import Button from './src/button.vue'
+import ProButton from './src/button.vue'
 
-Button.install = (app: App): void => {
-  app.component(Button.name, Button)
+ProButton.install = (app: App): void => {
+  app.component(ProButton.name, ProButton)
 }
 
-export default Button
+export default ProButton
