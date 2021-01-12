@@ -1,0 +1,57 @@
+{
+  "name": "beer-pro",
+  "main": "dist/lib/muxia.js",
+  "scripts": {
+    "build:prod": "cross-env NODE_ENV=production rollup -c",
+    "build:dev": "cross-env NODE_ENV=development rollup -c",
+    "c": "git-cz",
+    "clean": "lerna clean",
+    "del:dist": "lerna run del",
+    "build:theme": "rimraf packages/theme-chalk/lib && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk && rimraf packages/theme-chalk/lib"
+  },
+  "private": true,
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-lerna-changelog"
+    }
+  },
+  "lint-staged": {
+    "packages/**/*.{js,jsx,vue}": [
+      "prettier --write",
+      "git add ."
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "resolutions": {
+    "node-sass": "npm:sass@^1.30.0"
+  },
+  "dependencies": {
+    "vue": "^3.0.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "@vue/compiler-sfc": "^3.0.4",
+    "commitizen": "^4.2.1",
+    "cp-cli": "^2.0.0",
+    "cross-env": "^7.0.3",
+    "cz-lerna-changelog": "^2.0.3",
+    "esbuild": "^0.8.31",
+    "husky": "^4.3.7",
+    "lerna": "^3.22.1",
+    "lint-staged": "^10.3.0",
+    "prettier": "^2.1.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.28.2",
+    "rollup-plugin-esbuild": "^2.6.0",
+    "rollup-plugin-scss": "^2.6.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-vue": "^6.0.0",
+    "sass": "^1.30.0"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "beer-pro-button",
+  "version": "0.2.1",
+  "module": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "del": "rimraf dist"
+  },
+  "dependencies": {
+    "vue": "^3.0.3"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  },
+  "gitHead": "941eb09b926872e9ce7caaf3649acf1f74378b0yarn workspaces run del7"
+}
