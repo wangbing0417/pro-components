@@ -1,5 +1,5 @@
 {
-  "name": "beer-pro-layout",
+  "name": "beer-pro-div",
   "version": "0.0.0",
   "module": "dist/index.js",
   "license": "MIT",
@@ -7,11 +7,11 @@
     "del": "rimraf dist"
   },
   "dependencies": {
-    "vue": "^3.0.3",
-    "vue-router": "^4.0.1",
-    "@xhs/yam-beer": "3.14.2-next.59"
+    "@xhs/yam-beer": "3.14.2-next.59",
+    "vue": "^3.0.3"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"
-  }
+  },
+  "gitHead": "941eb09b926872e9ce7caaf3649acf1f74378b0yarn workspaces run del7"
 }

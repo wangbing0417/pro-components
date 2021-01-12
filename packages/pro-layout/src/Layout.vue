@@ -18,6 +18,8 @@
           <slot name="right-header" />
         </template>
       </ProLayoutHeader>
+
+      <ProScrollBar><ProLayoutMain /></ProScrollBar>
     </div>
   </div>
 </template>
@@ -26,6 +28,8 @@
 import { PropType, defineComponent } from 'vue'
 import ProLayoutHeader from './LayoutHeader.vue'
 import ProLayoutAside from './LayoutAside.vue'
+import ProLayoutMain from './LayoutMain.vue'
+import ProScrollBar from './ScrollBar.vue'
 import { useShow } from './composables'
 import type { ProRouteRecordRaw } from './types'
 
@@ -33,7 +37,9 @@ export default defineComponent({
   name: 'Layout',
   components: {
     ProLayoutHeader,
-    ProLayoutAside
+    ProLayoutAside,
+    ProLayoutMain,
+    ProScrollBar
   },
   props: {
     routes: {

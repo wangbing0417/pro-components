@@ -5,7 +5,7 @@ import { filterRouterByHidden } from '../utils'
 
 /**
  * toggle show
- * @param state init value (default `false`)
+ * @param state init value (default `false`) 菜单栏展开
  */
 export function useShow(
   state = false
@@ -63,7 +63,7 @@ export function useScreenSize(): Ref<ScreenSize> {
 }
 
 /**
- * routes with no value will get `vue-router` routes
+ * 如果没有传值，将自动从 vue-router 中获取路由并排除 meta: { hidden: true } 的路由
  * @param routes router list
  */
 export function useCurrentRoutes(
@@ -71,12 +71,11 @@ export function useCurrentRoutes(
 ): ComputedRef<ProRouteRecordRaw[]> {
   const _routes = unref(routes)
 
-  const router = useRouter()
-
   return computed(() => {
     if (_routes && _routes.length) {
       return _routes
     } else {
+      const router = useRouter()
       const _routes = router.options.routes as ProRouteRecordRaw[]
 
       return filterRouterByHidden(_routes)

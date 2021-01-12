@@ -6,11 +6,11 @@
         <slot :collapse="menuCollapse" name="logo" />
       </div>
 
-      <!--      <ProMenu :routes="routes">-->
-      <!--        <template #default="item">-->
-      <!--          <slot v-bind="item" name="menu" />-->
-      <!--        </template>-->
-      <!--      </ProMenu>-->
+      <ProMenu :routes="routes">
+        <template #default="item">
+          <slot v-bind="item" name="menu" />
+        </template>
+      </ProMenu>
     </div>
   </aside>
 </template>
@@ -18,13 +18,13 @@
 <script lang="ts">
 import { toRefs, computed, PropType } from 'vue'
 import { useScreenSize } from './composables'
-// import ProMenu from '../Menu/Menu.vue'
+import ProMenu from './Menu.vue'
 import type { ProRouteRecordRaw } from './types'
 
 export default {
   name: 'LayoutAside',
   components: {
-    // ProMenu
+    ProMenu
   },
   props: {
     collapse: {
@@ -39,6 +39,7 @@ export default {
   setup(props) {
     const { collapse } = toRefs(props)
     const size = useScreenSize()
+
     const menuCollapse = computed(() => {
       return size.value === 'xs' ? false : collapse.value
     })

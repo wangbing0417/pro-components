@@ -1,7 +1,7 @@
 <template>
   <pro-layout>
     <template #logo="{ collapse }">
-      <p>{{ collapse ? 'E' : 'beer-pro' }}</p>
+      <p>{{ collapse ? 'B' : 'beer-pro' }}</p>
     </template>
     <!-- <template #menu="{ meta }">
         <span>{{ meta.title + meta.icon }}</span>
