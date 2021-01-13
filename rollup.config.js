@@ -18,6 +18,7 @@ module.exports = fs
   .map(item => {
     const pkg = require(path.resolve(root, item, 'package.json'))
     return {
+      external: ['@xhs/yam-beer', 'vue', 'vue-router'],
       input: path.resolve(root, item, 'index.ts'),
       output: {
         globals: {
