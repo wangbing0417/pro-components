@@ -29,12 +29,12 @@ module.exports = fs
         format: 'es'
       },
       plugins: [
-        css(),
+        // css(),
         vue({
           include: /\.vue$/,
           css: false
         }),
-        // scss({ include: /\.scss$/, sass: dartSass }),
+        scss({ include: /\.scss$/, sass: dartSass }),
         esbuild({
           include: /\.[jt]s$/,
           minify: !isDev,

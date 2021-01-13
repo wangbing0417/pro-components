@@ -57,7 +57,7 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style lang="scss">
 .pro-layout {
   box-sizing: border-box;
   position: relative;

@@ -34,7 +34,7 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style lang="scss">
 .pro-header {
   display: flex;
   justify-content: space-between;

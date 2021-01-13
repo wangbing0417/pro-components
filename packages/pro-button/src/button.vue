@@ -40,7 +40,7 @@ export default defineComponent({
 <!--}-->
 <!--</style>-->
 
-<style>
+<style lang="scss">
 .pro-button {
   box-sizing: border-box;
   height: 32px;

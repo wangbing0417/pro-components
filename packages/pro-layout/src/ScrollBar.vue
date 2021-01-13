@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
 .pro-scrollbar {
   height: 100%;
   overflow: auto;

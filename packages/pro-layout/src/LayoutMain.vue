@@ -13,7 +13,7 @@
 
 <script setup lang="ts"></script>
 
-<style>
+<style lang="scss">
 .pro-main {
   margin: 10px;
   padding: 20px;

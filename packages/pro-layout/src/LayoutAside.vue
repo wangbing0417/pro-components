@@ -58,7 +58,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .pro-aside .mask {
   display: none;
 }

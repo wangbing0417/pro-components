@@ -7,7 +7,7 @@
           v-if="menu.meta?.title"
           @click="handleSelect(menu.path, index)"
         >
-          <span class="menu-item-icon">I</span>
+          <i :class="menu.meta?.icon"></i>
           <span v-if="!collapse" class="menu-item-title">{{ menu.meta?.title }}</span>
         </li>
       </template>
@@ -43,10 +43,8 @@ export default defineComponent({
     const route = useRoute()
     const router = useRouter()
     const currentRoutes = useCurrentRoutes(routes as Ref<ProRouteRecordRaw[]>)
-
     const activeIndex = ref(0)
 
-    console.log('currentRoutes', currentRoutes.value)
     onMounted(() => {
       // init
       activeIndex.value = currentRoutes.value.findIndex(
@@ -54,10 +52,9 @@ export default defineComponent({
       )
     })
 
-    function handleSelect(path: string, index) {
+    function handleSelect(path: string, index: number) {
       activeIndex.value = index
 
-      console.log(path)
       if (checkUrl(path)) {
         window.open(path)
       } else {
@@ -75,7 +72,7 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style lang="scss">
 .menu-wrap {
   margin: 0;
   padding: 0;
@@ -95,12 +92,11 @@ export default defineComponent({
 .menu-item-active {
   background-color: rgba(63, 135, 245, 0.15);
   color: #3f87f5;
-  font-weight: 400;
   border-right: 2px solid #3f87f5;
 }
 
 .menu-item:hover {
-  font-weight: 500;
+  color: #3f87f5;
 }
 
 .menu-item-center {
@@ -108,8 +104,10 @@ export default defineComponent({
 }
 
 .menu-item-icon {
-  text-align: center;
+  width: 17px;
+  height: 17px;
 }
+
 .menu-item-title {
   padding: 0 14px;
 }
