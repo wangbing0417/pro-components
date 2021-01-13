@@ -63,9 +63,10 @@ export default {
   display: none;
 }
 .pro-aside .pro-aside-wrapper {
+  box-sizing: border-box;
   position: relative;
   width: var(--aside-width);
-  height: calc(100vh - 60px);
+  //height: calc(100vh - 64px);
   border-right: 1px solid var(--c-border);
   background: var(--c-aside-background);
   transition: width var(--t-duration) var(--t-timing-function);
@@ -80,7 +81,6 @@ export default {
   min-height: calc(var(--layout-height) - var(--header-height));
 }
 .pro-aside .pro-aside-logo {
-  /*padding-left: 20px;*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,40 +88,6 @@ export default {
   border-bottom: 1px solid var(--c-border);
   background: var(--c-aside-background);
   overflow: hidden;
-}
-@media screen and (max-width: 768px) {
-  .pro-aside {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 0;
-    z-index: var(--z-index-sidebar);
-  }
-  .pro-aside.aside-collapse {
-    width: 100%;
-  }
-  .pro-aside .mask {
-    display: block;
-    position: absolute;
-    opacity: 0;
-    transition: opacity var(--t-duration) var(--t-timing-function);
-  }
-  .pro-aside.aside-collapse .mask {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--c-mask-background);
-    opacity: 1;
-  }
-  .pro-aside .pro-aside-wrapper {
-    transform: translateX(-100%);
-    transition: transform var(--t-duration) var(--t-timing-function);
-  }
-  .pro-aside.aside-collapse .pro-aside-wrapper {
-    width: var(--aside-width);
-    transform: translateX(0);
-  }
+  cursor: pointer;
 }
 </style>

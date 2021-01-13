@@ -41,6 +41,7 @@
     "cross-env": "^7.0.3",
     "cz-lerna-changelog": "^2.0.3",
     "esbuild": "^0.8.31",
+    "gulp": "^4.0.2",
     "husky": "^4.3.7",
     "lerna": "^3.22.1",
     "lint-staged": "^10.3.0",

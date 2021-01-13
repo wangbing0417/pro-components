@@ -1,12 +1,14 @@
 <template>
   <pro-layout>
-    <template #logo="{ collapse }">
-      <p>{{ collapse ? 'B' : 'beer-pro' }}</p>
-    </template>
+    <!-- <template #logo="{ collapse }">
+      <p>{{ collapse ? 'A' : 'Ark' }}</p>
+    </template> -->
     <!-- <template #menu="{ meta }">
         <span>{{ meta.title + meta.icon }}</span>
       </template> -->
-    <template #left-header> </template>
+    <template #left-header>
+      <p>Home / home</p>
+    </template>
     <template #right-header>
       <p>right-header</p>
     </template>

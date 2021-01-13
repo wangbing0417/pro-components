@@ -2,11 +2,7 @@
   <header class="pro-header">
     <div class="header-slot">
       <span class="header-fold-btn" @click="toggleCollapse">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-          <path
-            d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"
-          />
-        </svg>
+        <i :class="collapse ? 'pro-icon-s-unfold' : 'pro-icon-s-fold'"></i>
       </span>
       <slot name="left" />
     </div>
@@ -21,6 +17,12 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'LayoutHeader',
+  props: {
+    collapse: {
+      type: Boolean,
+      default: false
+    }
+  },
   emits: ['toggle-collapse'],
   setup(props, { emit }) {
     function toggleCollapse() {
@@ -42,6 +44,7 @@ export default defineComponent({
   padding: 0 20px;
   height: var(--header-height);
   border-bottom: 1px solid var(--c-border);
+  //background: #886cff;
   background: var(--c-header-background);
 }
 .pro-header .header-slot {
@@ -49,10 +52,11 @@ export default defineComponent({
   align-items: center;
 }
 .pro-header .header-fold-btn {
-  display: inline-block;
-  margin-right: 20px;
-  width: 22px;
-  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  //margin-right: 20px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
 }
 </style>

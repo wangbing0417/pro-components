@@ -16,7 +16,6 @@
 <style lang="scss">
 .pro-main {
   margin: 10px;
-  padding: 20px;
   border: 1px solid var(--c-border);
   border-radius: var(--border-radius);
   background: var(--c-aside-background);

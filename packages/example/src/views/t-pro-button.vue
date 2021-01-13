@@ -1,6 +1,7 @@
 <template>
-  <div class="pro-button">1</div>
-  <ProButton @click="handleClick"></ProButton>
+  <div style="padding: 10px">
+    <ProButton @click="handleClick"></ProButton>
+  </div>
 </template>
 
 <script lang="ts">

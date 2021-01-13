@@ -1,5 +1,7 @@
 <template>
-  <p>{{ test }}</p>
+  <div style="padding: 10px">
+    <p>{{ test }}</p>
+  </div>
 </template>
 
 <script lang="ts">

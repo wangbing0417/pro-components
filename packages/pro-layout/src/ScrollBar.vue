@@ -12,7 +12,7 @@ export default {
 
 <style lang="scss">
 .pro-scrollbar {
-  height: 100%;
+  height: calc(100vh - 64px);
   overflow: auto;
 }
 </style>

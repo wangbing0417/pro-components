@@ -84,7 +84,7 @@ export default defineComponent({
 .menu-item {
   white-space: nowrap;
   cursor: pointer;
-  padding: 10px 15px;
+  padding: 14px 15px;
   position: relative;
   overflow: hidden;
 }

@@ -1,5 +1,7 @@
 <template>
-  <p>{{ home }}</p>
+  <div style="padding: 10px">
+    <p>{{ home }}</p>
+  </div>
 </template>
 
 <script lang="ts">
