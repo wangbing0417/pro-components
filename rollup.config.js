@@ -31,9 +31,10 @@ module.exports = fs
       plugins: [
         css(),
         vue({
-          include: /\.vue$/
+          include: /\.vue$/,
+          css: false
         }),
-        scss({ include: /\.scss$/, sass: dartSass }),
+        // scss({ include: /\.scss$/, sass: dartSass }),
         esbuild({
           include: /\.[jt]s$/,
           minify: !isDev,

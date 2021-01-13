@@ -9,23 +9,30 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     redirect: '/index',
     component: BaseLayout,
-    meta: { title: 'Home', icon: 'el-icon-house', hidden: false },
+    meta: { title: '首页', icon: 'el-icon-house', hidden: false },
     children: [
       {
         path: '/index',
         component: Home,
         meta: { title: 'Home' }
-      },
-      {
-        path: '/test',
-        component: Test,
-        meta: { title: 'Test' }
       }
     ]
   },
   {
-    path: '/t-pro-button',
-    component: TProButton
+    path: '/t-pro',
+    redirect: '/t-pro/button',
+    component: BaseLayout,
+    meta: { title: '按钮测试', icon: 'el-icon-house', hidden: false },
+    children: [
+      {
+        path: '/t-pro/button',
+        component: TProButton
+      }
+    ]
+  },
+  {
+    path: '/test',
+    component: Test
   }
 ]
 

@@ -59,6 +59,7 @@ export default defineComponent({
 
 <style>
 .pro-layout {
+  box-sizing: border-box;
   position: relative;
   height: var(--layout-height);
   overflow: hidden;

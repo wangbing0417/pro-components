@@ -1,9 +1,20 @@
-<template></template>
+<template>
+  <slot></slot>
+</template>
 
-<script>
-export default {
-  name: 'BeerMenu'
-}
+<script lang="ts">
+import { defineComponent, PropType } from 'vue'
+
+export default defineComponent({
+  name: 'BeerMenu',
+  props: {
+    defaultActive: {
+      type: String,
+      default: ''
+    }
+  },
+  emits: ['select']
+})
 </script>
 
 <style scoped></style>

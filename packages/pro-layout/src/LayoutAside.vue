@@ -6,7 +6,7 @@
         <slot :collapse="menuCollapse" name="logo" />
       </div>
 
-      <ProMenu :routes="routes">
+      <ProMenu :routes="routes" :collapse="menuCollapse">
         <template #default="item">
           <slot v-bind="item" name="menu" />
         </template>
@@ -36,7 +36,7 @@ export default {
     }
   },
   emits: ['toggle-collapse'],
-  setup(props) {
+  setup(props, { emit }) {
     const { collapse } = toRefs(props)
     const size = useScreenSize()
 
@@ -65,7 +65,7 @@ export default {
 .pro-aside .pro-aside-wrapper {
   position: relative;
   width: var(--aside-width);
-  height: 100%;
+  height: calc(100vh - 60px);
   border-right: 1px solid var(--c-border);
   background: var(--c-aside-background);
   transition: width var(--t-duration) var(--t-timing-function);
@@ -80,7 +80,10 @@ export default {
   min-height: calc(var(--layout-height) - var(--header-height));
 }
 .pro-aside .pro-aside-logo {
-  padding-left: 20px;
+  /*padding-left: 20px;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: var(--header-height);
   border-bottom: 1px solid var(--c-border);
   background: var(--c-aside-background);

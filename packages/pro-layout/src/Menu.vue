@@ -1,47 +1,63 @@
 <template>
   <ProScrollBar>
-    <BeerMenu :default-active="route.path" @select="handleSelect">
-      <ProMenuItem v-for="menu in currentRoutes" :key="menu.path">
-        <template #default="item">
-          <slot v-bind="item">
-            <i v-if="item.meta.icon" :class="item.meta.icon" />
-            <span v-if="item.meta.title">{{ item.meta.title }}</span>
-          </slot>
-        </template>
-      </ProMenuItem>
-    </BeerMenu>
-    <div v-for="menu in currentRoutes" :key="menu.path">{{ menu }}</div>
+    <ul class="menu-wrap">
+      <template v-for="(menu, index) in currentRoutes" :key="menu.path">
+        <li
+          :class="{ 'menu-item': true, 'menu-item-center': collapse, 'menu-item-active': index === activeIndex }"
+          v-if="menu.meta?.title"
+          @click="handleSelect(menu.path, index)"
+        >
+          <span class="menu-item-icon">I</span>
+          <span v-if="!collapse" class="menu-item-title">{{ menu.meta?.title }}</span>
+        </li>
+      </template>
+    </ul>
   </ProScrollBar>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { defineComponent, onMounted, PropType, toRefs, ref } from 'vue'
+import type { Ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useCurrentRoutes } from './composables'
 import type { ProRouteRecordRaw } from './types'
 import { checkUrl } from './utils'
 import ProScrollBar from './ScrollBar.vue'
-import BeerMenu from './BeerMenu.vue'
-import ProMenuItem from './MenuItem.vue'
 
 export default defineComponent({
   name: 'Menu',
   components: {
-    ProScrollBar,
-    BeerMenu,
-    ProMenuItem
+    ProScrollBar
   },
   props: {
     routes: {
       type: Object as PropType<ProRouteRecordRaw[]>
+    },
+    collapse: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props) {
+    const { routes } = toRefs(props)
     const route = useRoute()
     const router = useRouter()
-    const currentRoutes = useCurrentRoutes(props.routes as Ref<ProRouteRecordRaw[]>)
+    const currentRoutes = useCurrentRoutes(routes as Ref<ProRouteRecordRaw[]>)
 
-    function handleSelect(path: string) {
+    const activeIndex = ref(0)
+
+    console.log('currentRoutes', currentRoutes.value)
+    onMounted(() => {
+      // init
+      activeIndex.value = currentRoutes.value.findIndex(
+        item => item.path === route.path || item.redirect === route.path
+      )
+    })
+
+    function handleSelect(path: string, index) {
+      activeIndex.value = index
+
+      console.log(path)
       if (checkUrl(path)) {
         window.open(path)
       } else {
@@ -52,10 +68,49 @@ export default defineComponent({
     return {
       route,
       currentRoutes,
-      handleSelect
+      handleSelect,
+      activeIndex
     }
   }
 })
 </script>
 
-<style scoped></style>
+<style>
+.menu-wrap {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #53535f;
+  font-size: 14px;
+}
+
+.menu-item {
+  white-space: nowrap;
+  cursor: pointer;
+  padding: 10px 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-item-active {
+  background-color: rgba(63, 135, 245, 0.15);
+  color: #3f87f5;
+  font-weight: 400;
+  border-right: 2px solid #3f87f5;
+}
+
+.menu-item:hover {
+  font-weight: 500;
+}
+
+.menu-item-center {
+  text-align: center;
+}
+
+.menu-item-icon {
+  text-align: center;
+}
+.menu-item-title {
+  padding: 0 14px;
+}
+</style>

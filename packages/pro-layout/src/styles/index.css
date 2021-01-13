@@ -13,7 +13,7 @@
   --layout-height: 100vh;
   --header-height: 60px;
   --footer-height: 50px;
-  --border-radius: .25rem;
+  --border-radius: 0.25rem;
 
   /* z-index */
   --z-index-sidebar: 100;
@@ -23,7 +23,8 @@
   --t-timing-function: ease-out;
 }
 
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }

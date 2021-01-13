@@ -25,25 +25,11 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
-$h: 32px;
-.pro-button {
-  box-sizing: border-box;
-  height: $h;
-  padding: 0 12px;
-  cursor: pointer;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  white-space: nowrap;
-  background: white;
-}
-</style>
-
-<!--<style>-->
+<!--<style lang="scss">-->
+<!--$h: 32px;-->
 <!--.pro-button {-->
 <!--  box-sizing: border-box;-->
-<!--  height: 32px;-->
+<!--  height: $h;-->
 <!--  padding: 0 12px;-->
 <!--  cursor: pointer;-->
 <!--  display: inline-flex;-->
@@ -53,3 +39,17 @@ $h: 32px;
 <!--  background: white;-->
 <!--}-->
 <!--</style>-->
+
+<style>
+.pro-button {
+  box-sizing: border-box;
+  height: 32px;
+  padding: 0 12px;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  background: white;
+}
+</style>
