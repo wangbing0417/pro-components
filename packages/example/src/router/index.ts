@@ -3,7 +3,6 @@ import BaseLayout from '../layout/Layout.vue'
 import Home from '../views/Home.vue'
 import Test from '../views/Test.vue'
 import TProButton from '../views/t-pro-button.vue'
-import TProDiv from '../views/t-pro-div.vue'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -27,11 +26,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/t-pro-button',
     component: TProButton
-  },{
-    path: '/t-pro-div',
-    component: TProDiv
   }
-
 ]
 
 const router = createRouter({
