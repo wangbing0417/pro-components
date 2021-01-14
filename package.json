@@ -3,7 +3,7 @@
   "main": "dist/lib/muxia.js",
   "scripts": {
     "build:prod": "cross-env NODE_ENV=production rollup -c",
-    "build:dev": "cross-env NODE_ENV=development rollup -c",
+    "build:dev": "cross-env NODE_ENV=development rollup -c -w",
     "c": "git-cz",
     "clean": "lerna clean",
     "del:dist": "lerna run del"

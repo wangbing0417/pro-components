@@ -8,8 +8,7 @@
   },
   "dependencies": {
     "vue": "^3.0.3",
-    "vue-router": "^4.0.1",
-    "@xhs/yam-beer": "3.14.2-next.59"
+    "vue-router": "^4.0.1"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"

@@ -13,7 +13,6 @@ export default defineComponent({
   emits: ['click'],
   setup(props, ctx) {
     const handleClick = evt => {
-      console.log('enter')
       ctx.emit('click', evt)
     }
 

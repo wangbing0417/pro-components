@@ -5,7 +5,7 @@ import scss from 'rollup-plugin-scss'
 import dartSass from 'sass'
 import esbuild from 'rollup-plugin-esbuild'
 import { terser } from 'rollup-plugin-terser'
-import css from 'rollup-plugin-css-only'
+// import css from 'rollup-plugin-css-only'
 
 const isDev = process.env.NODE_ENV !== 'production'
 

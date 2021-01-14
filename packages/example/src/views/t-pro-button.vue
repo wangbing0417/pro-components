@@ -14,8 +14,8 @@ export default defineComponent({
     ProButton
   },
   setup() {
-    const handleClick = () => {
-      console.log(345)
+    const handleClick = e => {
+      console.log(e)
     }
 
     return {

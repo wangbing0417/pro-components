@@ -1,6 +1,5 @@
 {
   "version": "independent",
-  "npmClient": "yarn",
   "command": {
     "bootstrap": {},
     "publish": {
