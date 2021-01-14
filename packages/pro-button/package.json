@@ -1,6 +1,6 @@
 {
   "name": "beer-pro-button",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": "true",
   "module": "dist/index.js",
   "license": "MIT",
