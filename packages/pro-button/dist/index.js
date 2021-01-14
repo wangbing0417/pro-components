@@ -1,39 +1,24 @@
-import { defineComponent, openBlock, createBlock, renderSlot, createTextVNode } from 'vue'
-
-var script = defineComponent({
+import { defineComponent as e, openBlock as t, createBlock as n, renderSlot as o, createTextVNode as l } from 'vue'
+var a = e({
   name: 'ProButton',
   props: {},
   emits: ['click'],
-  setup(props, ctx) {
-    const handleClick = evt => {
-      ctx.emit('click', evt)
+  setup: (e, t) => ({
+    handleClick: e => {
+      t.emit('click', e)
     }
-    return {
-      handleClick
-    }
-  }
+  })
 })
-
-const _hoisted_1 = /* @__PURE__ */ createTextVNode('\u6309\u94AE')
-function render(_ctx, _cache, $props, $setup, $data, $options) {
+const c = l('按钮')
+;(a.render = function (e, l, a, r, s, i) {
   return (
-    openBlock(),
-    createBlock(
-      'button',
-      {
-        class: 'pro-button',
-        onClick: _cache[1] || (_cache[1] = (...args) => _ctx.handleClick && _ctx.handleClick(...args))
-      },
-      [renderSlot(_ctx.$slots, 'default', {}, () => [_hoisted_1])]
-    )
+    t(),
+    n('button', { class: 'pro-button', onClick: l[1] || (l[1] = (...t) => e.handleClick && e.handleClick(...t)) }, [
+      o(e.$slots, 'default', {}, () => [c])
+    ])
   )
-}
-
-script.render = render
-script.__file = 'packages/pro-button/src/button.vue'
-
-script.install = app => {
-  app.component(script.name, script)
-}
-
-export default script
+}),
+  (a.install = e => {
+    e.component(a.name, a)
+  })
+export default a

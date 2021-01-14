@@ -4,7 +4,7 @@
       <template v-for="(menu, index) in currentRoutes" :key="menu.path">
         <li
           :class="{ 'menu-item': true, 'menu-item-center': collapse, 'menu-item-active': index === activeIndex }"
-          v-if="menu.meta?.title"
+          v-if="menu.meta?.title && menu.meta?.title !== '你访问的页面不见了'"
           @click="handleSelect(menu.path, index)"
         >
           <i :class="menu.meta?.icon"></i>
