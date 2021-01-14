@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/wangbing0417/pro-components/compare/beer-pro-layout@0.1.0...beer-pro-layout@0.2.0) (2021-01-14)
+
+
+### Features
+
+* 兼容 ([cd41663](https://github.com/wangbing0417/pro-components/commit/cd41663d96677a730471139acdac51e59e0d6c13))
+
+
+
+
+
 # 0.1.0 (2021-01-14)
 
 
