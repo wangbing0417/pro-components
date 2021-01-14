@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/wangbing0417/pro-components/compare/example@0.1.1...example@0.1.2) (2021-01-14)
+
+**Note:** Version bump only for package example
+
+
+
+
+
 ## [0.1.1](https://github.com/wangbing0417/pro-components/compare/example@0.1.0...example@0.1.1) (2021-01-14)
 
 **Note:** Version bump only for package example
