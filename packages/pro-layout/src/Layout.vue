@@ -59,7 +59,7 @@ export default defineComponent({
   props: {
     title: {
       type: String,
-      default: 'B端数据报表平台'
+      default: 'B端数据报表平台2'
     },
     routes: {
       type: Object as PropType<ProRouteRecordRaw[]>
