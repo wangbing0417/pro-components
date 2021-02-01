@@ -1,5 +1,5 @@
 {
-  "name": "beer-pro",
+  "name": "pro-ui",
   "scripts": {
     "c": "git-cz"
   },
@@ -24,16 +24,11 @@
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
-    "@vue/compiler-sfc": "^3.0.4",
     "commitizen": "^4.2.1",
-    "cp-cli": "^2.0.0",
-    "cross-env": "^7.0.3",
     "cz-lerna-changelog": "^2.0.3",
-    "esbuild": "^0.8.31",
     "husky": "^4.3.7",
     "lerna": "^3.22.1",
     "lint-staged": "^10.3.0",
-    "prettier": "^2.1.1",
-    "rimraf": "^3.0.2"
+    "prettier": "^2.1.1"
   }
 }

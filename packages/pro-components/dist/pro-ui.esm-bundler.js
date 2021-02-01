@@ -15,6 +15,31 @@ import {
   renderSlot
 } from 'vue'
 
+/**
+ * get globalOptions $ELEMENT config object
+ */
+
+function useGlobalOptions() {
+  const instance = getCurrentInstance()
+
+  if (!instance) {
+    console.warn('useGlobalOptions must be call in setup function')
+    return
+  }
+
+  return instance.appContext.config.globalProperties.$ELEMENT || {}
+}
+function setupGlobalOptions(opts = {}) {
+  return app => {
+    app.config.globalProperties.$ELEMENT = {
+      size: opts.size || '',
+      zIndex: opts.zIndex || 2000
+    }
+  }
+}
+
+var version = '1.0.0'
+
 const props = {
   size: {
     type: String,
@@ -40,31 +65,8 @@ const props = {
   icon: String
 }
 
-/**
- * get globalOptions $ELEMENT config object
- */
-
-function useGlobalOptions() {
-  const instance = getCurrentInstance()
-
-  if (!instance) {
-    console.warn('useGlobalOptions must be call in setup function')
-    return
-  }
-
-  return instance.appContext.config.globalProperties.$ELEMENT || {}
-}
-function setupGlobalOptions(opts = {}) {
-  return app => {
-    app.config.globalProperties.$ELEMENT = {
-      size: opts.size || '',
-      zIndex: opts.zIndex || 2000
-    }
-  }
-}
-
 var script = defineComponent({
-  name: 'ElButton',
+  name: 'ProButton',
   props,
 
   setup(props) {
@@ -167,7 +169,36 @@ script.install = function (app) {
   app.component(script.name, script)
 }
 
-const components = [script]
+var script$1 = {
+  name: 'ProIcon',
+  props: {
+    name: String
+  }
+}
+
+function render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  return (
+    openBlock(),
+    createBlock(
+      'i',
+      {
+        class: `pro-icon-${$props.name}`
+      },
+      null,
+      2
+      /* CLASS */
+    )
+  )
+}
+
+script$1.render = render$1
+script$1.__file = 'src/components/Icon/Icon.vue'
+
+script$1.install = function (app) {
+  app.component(script$1.name, script$1)
+}
+
+const components = [script, script$1]
 
 const install = (app, opts = {}) => {
   app.use(setupGlobalOptions(opts))
@@ -176,10 +207,10 @@ const install = (app, opts = {}) => {
   })
 }
 
-const element3 = {
-  // version,
+const ProComponents = {
+  version,
   install
 }
 
-export default element3
-export { script as ElButton, install }
+export default ProComponents
+export { script as ProButton, script$1 as ProIcon, install, version }

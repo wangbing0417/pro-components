@@ -1,20 +1,14 @@
-import { ElementUIComponent, ElementUIComponentSize } from './component'
+import { ProUIComponent, ProUIComponentSize } from './component'
 
 /** Button type */
-export type ButtonType =
-  | 'primary'
-  | 'success'
-  | 'warning'
-  | 'danger'
-  | 'info'
-  | 'text'
+export type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text'
 
 /** Same as native button's type */
 export type ButtonNativeType = 'button' | 'submit' | 'reset' | 'menu'
 
-interface IButton extends ElementUIComponent {
+interface IButton extends ProUIComponent {
   /** Button size */
-  size: ElementUIComponentSize
+  size: ProUIComponentSize
 
   /** Button type */
   type: ButtonType
@@ -31,7 +25,7 @@ interface IButton extends ElementUIComponent {
   /** Disable the button */
   disabled: boolean
 
-  /** Button icon, accepts an icon name of Element icon component */
+  /** Button Icon, accepts an Icon name of Element Icon component */
   icon: string
 
   /** Same as native button's autofocus */
@@ -42,4 +36,4 @@ interface IButton extends ElementUIComponent {
 }
 
 /** Button Component */
-export const ElButton: IButton
+export const ProButton: IButton

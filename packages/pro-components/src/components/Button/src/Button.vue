@@ -11,10 +11,10 @@
 <script lang="ts">
 import { toRefs, inject, computed, defineComponent, Ref } from 'vue'
 import { props } from './props'
-import { useGlobalOptions } from '../../../composables/globalConfig.js'
+import { useGlobalOptions } from '../../../composables/globalConfig'
 
 export default defineComponent({
-  name: 'ElButton',
+  name: 'ProButton',
   props,
   setup(props) {
     const { size, disabled } = toRefs(props)

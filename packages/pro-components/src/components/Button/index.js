@@ -1,7 +1,7 @@
-import ElButton from './src/Button.vue'
+import ProButton from './src/Button.vue'
 
-ElButton.install = function (app) {
-  app.component(ElButton.name, ElButton)
+ProButton.install = function (app) {
+  app.component(ProButton.name, ProButton)
 }
 
-export { ElButton }
+export { ProButton }

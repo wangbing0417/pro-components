@@ -1,4 +1,5 @@
-export * from './element3'
+export * from './pro-components'
 
-import * as Element3 from './element3'
-export default Element3
+import * as ProComponents from './pro-components'
+
+export default ProComponents

@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs')
 const path = require('path')
-const blacklist = ['icon', 'option', 'option-group', 'theme-chalk']
+const blacklist = ['theme-chalk']
+// const blacklist = ['Icon', 'theme-chalk']
 const componentPaths = [path.resolve(__dirname, '../packages'), path.resolve(__dirname, '../src/components')]
 const themePath = path.resolve(__dirname, '../packages', 'theme-chalk/src')
 const fileSuffix = '.scss'
@@ -26,12 +27,6 @@ function getComponentNameList(componentPath) {
   return fs
     .readdirSync(componentPath)
     .filter(name => {
-      // 临时处理 忽略 src/component 内的组件
-      if (componentPath.includes('src/component')) {
-        if (name === 'Table' || name === 'TableColumn') {
-          return false
-        }
-      }
       return !blacklist.includes(name)
     })
     .filter(name => {

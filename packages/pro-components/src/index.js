@@ -1,8 +1,9 @@
-import { ElButton } from './components/Button/index.js'
 import { setupGlobalOptions } from './composables/globalConfig'
-// import { version } from '../package.json'
+import { version } from '../package.json'
+import { ProButton } from './components/Button/index.js'
+import { ProIcon } from './components/Icon/index.js'
 
-const components = [ElButton]
+const components = [ProButton, ProIcon]
 
 const install = (app, opts = {}) => {
   app.use(setupGlobalOptions(opts))
@@ -12,15 +13,11 @@ const install = (app, opts = {}) => {
   })
 }
 
-const element3 = {
-  // version,
+const ProComponents = {
+  version,
   install
 }
 
-export {
-  // version,
-  install,
-  ElButton
-}
+export { version, install, ProButton, ProIcon }
 
-export default element3
+export default ProComponents

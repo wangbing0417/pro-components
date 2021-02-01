@@ -1,7 +1,6 @@
 import pkg from './package.json'
 import vuePlugin from 'rollup-plugin-vue'
 import scss from 'rollup-plugin-scss'
-import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
@@ -25,7 +24,6 @@ const createBaseConfig = () => {
     input: 'src/index.js',
     external: ['vue'],
     plugins: [
-      peerDepsExternal(),
       vuePlugin({
         css: true
       }),
@@ -36,7 +34,7 @@ const createBaseConfig = () => {
         babelHelpers: 'bundled'
       }),
       resolve({
-        extensions: ['.vue', '.jsx', '.js']
+        extensions: ['.vue', '.jsx', '.js', '.ts']
       }),
       commonjs(),
       json(),
