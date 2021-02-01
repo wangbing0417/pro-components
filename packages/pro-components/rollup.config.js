@@ -10,12 +10,12 @@ import babel from '@rollup/plugin-babel'
 import ts from 'rollup-plugin-typescript2'
 import { terser } from 'rollup-plugin-terser'
 
-const name = 'Element3'
+const name = 'pro-components'
 
 const createBanner = () => {
   return `/*!
   * ${pkg.name} v${pkg.version}
-  * (c) ${new Date().getFullYear()} kkb
+  * (c) ${new Date().getFullYear()} xhs
   * @license MIT
   */`
 }
@@ -43,6 +43,7 @@ const createBaseConfig = () => {
       scss()
     ],
     output: {
+      extend: true,
       sourcemap: false,
       banner: createBanner(),
       externalLiveBindings: false,
@@ -67,7 +68,7 @@ function mergeConfig(baseConfig, configB) {
 }
 
 function createFileName(formatName) {
-  return `dist/element3-ui.${formatName}.js`
+  return `dist/pro-ui.${formatName}.js`
 }
 
 // es-bundle
@@ -106,7 +107,8 @@ const esBrowserProdConfig = {
   ],
   output: {
     file: createFileName('esm-browser.prod'),
-    format: 'es'
+    format: 'es',
+    exports: 'named'
   }
 }
 
@@ -119,9 +121,11 @@ const cjsConfig = {
   ],
   output: {
     file: createFileName('cjs'),
-    format: 'cjs'
+    format: 'cjs',
+    exports: 'named'
   }
 }
+
 // cjs.prod
 const cjsProdConfig = {
   plugins: [
@@ -132,7 +136,8 @@ const cjsProdConfig = {
   ],
   output: {
     file: createFileName('cjs.prod'),
-    format: 'cjs'
+    format: 'cjs',
+    exports: 'named'
   }
 }
 
@@ -147,9 +152,11 @@ const globalConfig = {
   output: {
     file: createFileName('global'),
     format: 'iife',
+    exports: 'named',
     name
   }
 }
+
 // global.prod
 const globalProdConfig = {
   plugins: [
@@ -162,6 +169,7 @@ const globalProdConfig = {
   output: {
     file: createFileName('global.prod'),
     format: 'iife',
+    exports: 'named', //Disable warning for default imports
     name
   }
 }

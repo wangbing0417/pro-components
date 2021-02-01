@@ -1,6 +1,6 @@
 /*!
  * pro-components v1.0.0
- * (c) 2021 kkb
+ * (c) 2021 xhs
  * @license MIT
  */
 import {
@@ -86,8 +86,8 @@ var script = defineComponent({
 const useClasses = ({ props, size, disabled }) => {
   return computed(() => {
     return [
-      size.value ? `el-button--${size.value}` : '',
-      props.type ? `el-button--${props.type}` : '',
+      size.value ? `pro-button--${size.value}` : '',
+      props.type ? `pro-button--${props.type}` : '',
       {
         'is-plain': props.plain,
         'is-round': props.round,
@@ -112,18 +112,13 @@ const useButtonDisabled = disabled => {
 const useButtonSize = size => {
   const globalConfig = useGlobalOptions()
   return computed(() => {
-    const elFormItem = inject('elFormItem', null)
-    return (
-      (size === null || size === void 0 ? void 0 : size.value) ||
-      (elFormItem === null || elFormItem === void 0 ? void 0 : elFormItem.elFormItemSize) ||
-      globalConfig.size
-    )
+    return (size === null || size === void 0 ? void 0 : size.value) || globalConfig.size
   })
 }
 
 const _hoisted_1 = {
   key: 0,
-  class: 'el-icon-loading'
+  class: 'pro-icon-loading'
 }
 const _hoisted_2 = {
   key: 2
@@ -134,7 +129,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     createBlock(
       'button',
       {
-        class: ['el-button', _ctx.classes],
+        class: ['pro-button', _ctx.classes],
         type: _ctx.nativeType,
         disabled: _ctx.buttonDisabled || _ctx.loading
       },
@@ -172,8 +167,6 @@ script.install = function (app) {
   app.component(script.name, script)
 }
 
-var version = '1.0.0'
-
 const components = [script]
 
 const install = (app, opts = {}) => {
@@ -184,9 +177,9 @@ const install = (app, opts = {}) => {
 }
 
 const element3 = {
-  version,
+  // version,
   install
 }
 
 export default element3
-export { install, version }
+export { script as ElButton, install }

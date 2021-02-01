@@ -1,6 +1,6 @@
 <template>
-  <button class="el-button" :class="classes" :type="nativeType" :disabled="buttonDisabled || loading">
-    <i class="el-icon-loading" v-if="loading"></i>
+  <button class="pro-button" :class="classes" :type="nativeType" :disabled="buttonDisabled || loading">
+    <i class="pro-icon-loading" v-if="loading"></i>
     <i :class="icon" v-else-if="icon"></i>
     <span v-if="$slots.default">
       <slot></slot>
@@ -9,9 +9,9 @@
 </template>
 
 <script lang="ts">
+import { toRefs, inject, computed, defineComponent, Ref } from 'vue'
 import { props } from './props'
 import { useGlobalOptions } from '../../../composables/globalConfig.js'
-import { toRefs, inject, computed, defineComponent, Ref } from 'vue'
 
 export default defineComponent({
   name: 'ElButton',
@@ -35,8 +35,8 @@ export default defineComponent({
 const useClasses = ({ props, size, disabled }) => {
   return computed(() => {
     return [
-      size.value ? `el-button--${size.value}` : '',
-      props.type ? `el-button--${props.type}` : '',
+      size.value ? `pro-button--${size.value}` : '',
+      props.type ? `pro-button--${props.type}` : '',
       {
         'is-plain': props.plain,
         'is-round': props.round,
@@ -59,8 +59,7 @@ const useButtonDisabled = (disabled: Ref) => {
 const useButtonSize = (size: Ref) => {
   const globalConfig = useGlobalOptions()
   return computed(() => {
-    const elFormItem = inject('elFormItem', null)
-    return size?.value || elFormItem?.elFormItemSize || globalConfig.size
+    return size?.value || globalConfig.size
   })
 }
 </script>
