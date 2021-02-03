@@ -1,12 +1,3 @@
 <template>
-  <div>
-    <ProButton type="danger">想骂人</ProButton>
-    <ProIcon name="ice-drink"></ProIcon>
-  </div>
+  <router-view />
 </template>
-
-<script>
-export default {
-  name: 'App'
-}
-</script>

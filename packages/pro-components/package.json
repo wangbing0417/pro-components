@@ -1,7 +1,6 @@
 {
   "name": "pro-components",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
   "main": "dist/pro-ui.cjs.js",
   "module": "dist/pro-ui.esm-bundler.js",
   "unpkg": "dist/pro-ui.global.js",
@@ -10,15 +9,18 @@
     "lib",
     "dist",
     "src",
-    "packages",
     "types"
   ],
   "typings": "types/index.d.ts",
   "scripts": {
-    "build": "npm run build:theme && npm run build:lib",
-    "build:lib": "rollup -c",
-    "build:theme": "node scripts/generateCssFile.js && gulp build --gulpfile ../theme-chalk/gulpfile.js && cp-cli ../theme-chalk/lib lib/theme-chalk",
-    "dev": "cross-env NODE_ENV=development rollup -wc"
+    "dev": "npm run generateCssFile:dev | npm run gulp:dev | npm run rollup:dev | npm run gulp:build",
+    "build": "npm run generateCssFile:build | npm run gulp:build | npm run rollup:build",
+    "generateCssFile:dev": "nodemon scripts/generateCssFile.js",
+    "generateCssFile:build": "node scripts/generateCssFile.js",
+    "gulp:dev": "gulp watch",
+    "gulp:build": "gulp build",
+    "rollup:dev": "cross-env NODE_ENV=development rollup -wc",
+    "rollup:build": "rollup -c"
   },
   "license": "MIT",
   "style": "lib/theme-chalk/index.css",
@@ -40,6 +42,7 @@
     "gulp-autoprefixer": "^7.0.1",
     "gulp-cssmin": "^0.2.0",
     "gulp-sass": "^4.1.0",
+    "nodemon": "^2.0.7",
     "rollup": "^2.28.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-scss": "^2.6.1",
@@ -47,6 +50,7 @@
     "rollup-plugin-typescript2": "^0.29.0",
     "rollup-plugin-vue": "^6.0.0",
     "typescript": "^4.1.2",
-    "vue": "^3.0.4"
+    "vue": "^3.0.4",
+    "vue-router": "^4.0.1"
   }
 }

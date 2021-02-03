@@ -1,7 +1,9 @@
 const fs = require('fs')
 const path = require('path')
+const blackList = ['Button']
 const componentPaths = [path.resolve(__dirname, '../src/components')]
-const themePath = path.resolve(__dirname, '../../theme-chalk/src')
+// const themePath = path.resolve(__dirname, '../../theme-chalk/src')
+const themePath = path.resolve(__dirname, '../src/styles')
 const fileSuffix = '.scss'
 const indexFileName = 'index' + fileSuffix
 const outputIndexFilePath = path.resolve(themePath, indexFileName)
@@ -24,6 +26,9 @@ function getComponentNameList(componentPath) {
   return fs
     .readdirSync(componentPath)
     .filter(name => {
+      return !blackList.includes(name)
+    })
+    .filter(name => {
       return !name.startsWith('.')
     })
     .map(componentName => {
@@ -32,7 +37,7 @@ function getComponentNameList(componentPath) {
 }
 
 function genCssCode(componentNameList) {
-  let indexContent = '@import "./base.scss";\n'
+  let indexContent = '@import "./base.scss";\n@import "./icon.scss";\n'
 
   return componentNameList.reduce((context, filePath) => {
     return (context += '@import "./' + filePath + '";\n')

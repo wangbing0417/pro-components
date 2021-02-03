@@ -1,9 +1,8 @@
 import { setupGlobalOptions } from './composables/globalConfig'
 import { version } from '../package.json'
-import { ProButton } from './components/Button/index.js'
-import { ProIcon } from './components/Icon/index.js'
+import { ProLayout } from './components/ProLayout/index.js'
 
-const components = [ProButton, ProIcon]
+const components = [ProLayout]
 
 const install = (app, opts = {}) => {
   app.use(setupGlobalOptions(opts))
@@ -18,6 +17,6 @@ const ProComponents = {
   install
 }
 
-export { version, install, ProButton, ProIcon }
+export { version, install, ProLayout }
 
 export default ProComponents

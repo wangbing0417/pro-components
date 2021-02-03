@@ -1,6 +1,6 @@
 import pkg from './package.json'
 import vuePlugin from 'rollup-plugin-vue'
-import scss from 'rollup-plugin-scss'
+// import scss from 'rollup-plugin-scss'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
@@ -22,23 +22,23 @@ const createBanner = () => {
 const createBaseConfig = () => {
   return {
     input: 'src/index.js',
-    external: ['vue'],
+    external: ['vue', 'vue-router'],
     plugins: [
       vuePlugin({
-        css: true
+        css: false
+      }),
+      // scss(),
+      resolve({
+        extensions: ['.vue', '.jsx', '.js', '.ts']
       }),
       ts(),
+      commonjs(),
       babel({
         exclude: 'node_modules/**',
         extensions: ['.js', '.jsx', '.vue'],
         babelHelpers: 'bundled'
       }),
-      resolve({
-        extensions: ['.vue', '.jsx', '.js', '.ts']
-      }),
-      commonjs(),
-      json(),
-      scss()
+      json()
     ],
     output: {
       extend: true,
@@ -46,7 +46,8 @@ const createBaseConfig = () => {
       banner: createBanner(),
       externalLiveBindings: false,
       globals: {
-        vue: 'Vue'
+        vue: 'Vue',
+        'vue-router': 'VueRouter'
       }
     }
   }
@@ -78,7 +79,7 @@ const esBundleConfig = {
   ],
   output: {
     file: createFileName('esm-bundler'),
-    format: 'es'
+    format: 'esm'
   }
 }
 
@@ -91,7 +92,7 @@ const esBrowserConfig = {
   ],
   output: {
     file: createFileName('esm-browser'),
-    format: 'es'
+    format: 'esm'
   }
 }
 
@@ -105,7 +106,7 @@ const esBrowserProdConfig = {
   ],
   output: {
     file: createFileName('esm-browser.prod'),
-    format: 'es',
+    format: 'esm',
     exports: 'named'
   }
 }

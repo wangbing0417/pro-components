@@ -1,7 +1,5 @@
 <template>
-  <button class="pro-button" :class="classes" :type="nativeType" :disabled="buttonDisabled || loading">
-    <i class="pro-icon-loading" v-if="loading"></i>
-    <i :class="icon" v-else-if="icon"></i>
+  <button class="pro-button">
     <span v-if="$slots.default">
       <slot></slot>
     </span>
@@ -9,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import { toRefs, inject, computed, defineComponent, Ref } from 'vue'
+import { toRefs, computed, defineComponent, Ref } from 'vue'
 import { props } from './props'
 import { useGlobalOptions } from '../../../composables/globalConfig'
 
@@ -50,9 +48,7 @@ const useClasses = ({ props, size, disabled }) => {
 
 const useButtonDisabled = (disabled: Ref) => {
   return computed(() => {
-    const elForm = inject('elForm', null)
-
-    return disabled?.value || elForm?.disabled
+    return disabled?.value
   })
 }
 
@@ -63,3 +59,9 @@ const useButtonSize = (size: Ref) => {
   })
 }
 </script>
+
+<style lang="scss">
+.pro-button {
+  background: #67c23a;
+}
+</style>
