@@ -17,7 +17,7 @@
   "scripts": {
     "build": "npm run build:theme && npm run build:lib",
     "build:lib": "rollup -c",
-    "build:theme": "node scripts/generateCssFile.js && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk",
+    "build:theme": "node scripts/generateCssFile.js && gulp build --gulpfile ../theme-chalk/gulpfile.js && cp-cli ../theme-chalk/lib lib/theme-chalk",
     "dev": "cross-env NODE_ENV=development rollup -wc"
   },
   "license": "MIT",

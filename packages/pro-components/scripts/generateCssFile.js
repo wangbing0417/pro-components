@@ -1,10 +1,7 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs')
 const path = require('path')
-const blacklist = ['theme-chalk']
-// const blacklist = ['Icon', 'theme-chalk']
-const componentPaths = [path.resolve(__dirname, '../packages'), path.resolve(__dirname, '../src/components')]
-const themePath = path.resolve(__dirname, '../packages', 'theme-chalk/src')
+const componentPaths = [path.resolve(__dirname, '../src/components')]
+const themePath = path.resolve(__dirname, '../../theme-chalk/src')
 const fileSuffix = '.scss'
 const indexFileName = 'index' + fileSuffix
 const outputIndexFilePath = path.resolve(themePath, indexFileName)
@@ -27,9 +24,6 @@ function getComponentNameList(componentPath) {
   return fs
     .readdirSync(componentPath)
     .filter(name => {
-      return !blacklist.includes(name)
-    })
-    .filter(name => {
       return !name.startsWith('.')
     })
     .map(componentName => {
@@ -38,7 +32,7 @@ function getComponentNameList(componentPath) {
 }
 
 function genCssCode(componentNameList) {
-  var indexContent = '@import "./base.scss";\n'
+  let indexContent = '@import "./base.scss";\n'
 
   return componentNameList.reduce((context, filePath) => {
     return (context += '@import "./' + filePath + '";\n')
