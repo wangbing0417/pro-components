@@ -25,8 +25,9 @@ const createBaseConfig = () => {
     external: ['vue'],
     plugins: [
       vuePlugin({
-        css: true
+        css: false
       }),
+      scss({ output: './lib/theme-chalk/bundle.css' }),
       ts(),
       babel({
         exclude: 'node_modules/**',
@@ -37,8 +38,7 @@ const createBaseConfig = () => {
         extensions: ['.vue', '.jsx', '.js', '.ts']
       }),
       commonjs(),
-      json(),
-      scss()
+      json()
     ],
     output: {
       extend: true,

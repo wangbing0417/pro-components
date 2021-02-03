@@ -1,6 +1,6 @@
 'use strict'
 
-const { series, src, dest } = require('gulp')
+const { watch, series, task, src, dest } = require('gulp')
 const sass = require('gulp-sass')
 const autoprefixer = require('gulp-autoprefixer')
 const cssmin = require('gulp-cssmin')
@@ -23,3 +23,7 @@ function copyfont() {
 }
 
 exports.build = series(compile, copyfont)
+
+task('watch', function () {
+  watch('./src/*.scss', series(compile, copyfont))
+})

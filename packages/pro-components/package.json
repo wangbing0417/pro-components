@@ -1,7 +1,6 @@
 {
   "name": "pro-components",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
   "main": "dist/pro-ui.cjs.js",
   "module": "dist/pro-ui.esm-bundler.js",
   "unpkg": "dist/pro-ui.global.js",
@@ -10,7 +9,6 @@
     "lib",
     "dist",
     "src",
-    "packages",
     "types"
   ],
   "typings": "types/index.d.ts",

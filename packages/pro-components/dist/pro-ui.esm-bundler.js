@@ -1,5 +1,5 @@
 /*!
- * pro-components v1.0.0
+ * pro-components v0.0.1
  * (c) 2021 xhs
  * @license MIT
  */
@@ -8,11 +8,11 @@ import {
   defineComponent,
   toRefs,
   computed,
-  inject,
   openBlock,
   createBlock,
   createCommentVNode,
-  renderSlot
+  renderSlot,
+  createVNode
 } from 'vue'
 
 /**
@@ -38,7 +38,7 @@ function setupGlobalOptions(opts = {}) {
   }
 }
 
-var version = '1.0.0'
+var version = '0.0.1'
 
 const props = {
   size: {
@@ -103,11 +103,7 @@ const useClasses = ({ props, size, disabled }) => {
 
 const useButtonDisabled = disabled => {
   return computed(() => {
-    const elForm = inject('elForm', null)
-    return (
-      (disabled === null || disabled === void 0 ? void 0 : disabled.value) ||
-      (elForm === null || elForm === void 0 ? void 0 : elForm.disabled)
-    )
+    return disabled === null || disabled === void 0 ? void 0 : disabled.value
   })
 }
 
@@ -125,6 +121,19 @@ const _hoisted_1 = {
 const _hoisted_2 = {
   key: 2
 }
+
+const _hoisted_3 = /*#__PURE__*/ createVNode(
+  'span',
+  {
+    style: {
+      color: 'black'
+    }
+  },
+  '1234',
+  -1
+  /* HOISTED */
+)
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (
     openBlock(),
@@ -153,7 +162,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           : createCommentVNode('v-if', true),
         _ctx.$slots.default
           ? (openBlock(), createBlock('span', _hoisted_2, [renderSlot(_ctx.$slots, 'default')]))
-          : createCommentVNode('v-if', true)
+          : createCommentVNode('v-if', true),
+        _hoisted_3
       ],
       10,
       /* CLASS, PROPS */

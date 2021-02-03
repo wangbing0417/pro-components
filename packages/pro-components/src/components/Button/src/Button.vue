@@ -5,11 +5,12 @@
     <span v-if="$slots.default">
       <slot></slot>
     </span>
+    <span style="color: black">1234</span>
   </button>
 </template>
 
 <script lang="ts">
-import { toRefs, inject, computed, defineComponent, Ref } from 'vue'
+import { toRefs, computed, defineComponent, Ref } from 'vue'
 import { props } from './props'
 import { useGlobalOptions } from '../../../composables/globalConfig'
 
@@ -50,9 +51,7 @@ const useClasses = ({ props, size, disabled }) => {
 
 const useButtonDisabled = (disabled: Ref) => {
   return computed(() => {
-    const elForm = inject('elForm', null)
-
-    return disabled?.value || elForm?.disabled
+    return disabled?.value
   })
 }
 
@@ -63,3 +62,8 @@ const useButtonSize = (size: Ref) => {
   })
 }
 </script>
+
+<style>
+.test {
+}
+</style>
