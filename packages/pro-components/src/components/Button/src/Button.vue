@@ -1,11 +1,8 @@
 <template>
-  <button class="pro-button" :class="classes" :type="nativeType" :disabled="buttonDisabled || loading">
-    <i class="pro-icon-loading" v-if="loading"></i>
-    <i :class="icon" v-else-if="icon"></i>
+  <button class="pro-button">
     <span v-if="$slots.default">
       <slot></slot>
     </span>
-    <span style="color: black">1234</span>
   </button>
 </template>
 
@@ -63,7 +60,8 @@ const useButtonSize = (size: Ref) => {
 }
 </script>
 
-<style>
-.test {
+<style lang="scss">
+.pro-button {
+  background: #67c23a;
 }
 </style>
