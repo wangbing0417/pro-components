@@ -1,6 +1,6 @@
 import pkg from './package.json'
 import vuePlugin from 'rollup-plugin-vue'
-import scss from 'rollup-plugin-scss'
+// import scss from 'rollup-plugin-scss'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
@@ -46,7 +46,8 @@ const createBaseConfig = () => {
       banner: createBanner(),
       externalLiveBindings: false,
       globals: {
-        vue: 'vue'
+        vue: 'Vue',
+        'vue-router': 'VueRouter'
       }
     }
   }
